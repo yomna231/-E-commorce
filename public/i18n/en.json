@@ -1,0 +1,214 @@
+{
+  "COMMON": {
+    "HOME": "Home",
+    "CART": "Cart",
+    "CATEGORIES": "Categories",
+    "BRANDS": "Brands",
+    "WISHLIST": "Wish List",
+    "LOGIN": "Login",
+    "REGISTER": "Register",
+    "PRODUCTS": "Products",
+    "FORGET_PASSWORD": "Forget your Password ?",
+    "NEW_HERE": "If you're new here, click to",
+    "LOGIN_NOW": "Login Now",
+    "SEARCH": "Search... ",
+    "LOGOUT": "Log Out",
+    "PRICE": "Price",
+    "RESET_PASSWORD": "Reset Password",
+    "ENTER_EMAIL": "Enter your email",
+    "SEND_CODE": "Send Verification Code",
+    "BACK_TO_LOGIN": "Back to Login",
+    "ENTER_VERIFICATION_CODE": "Enter Verification Code",
+    "VERIFY": "Verify",
+    "NEW_PASSWORD": "New Password",
+    "SAVE_NEW_PASSWORD": "Save New Password",
+    "REMOVE": "Remove",
+    "ALL_CATEGORIES": "All Categories",
+    "ALL_BRANDS": "All Brands",
+    "ADD_TO_CART": "Add to Cart",
+
+    "FAVOURITES": "Favourites",
+    "SIGNUP": "Sign Up",
+    "EGP": "EGP",
+    "DESCRIPTION": "Description"
+  },
+
+  "Cart": {
+    "ITEMS": "Items",
+    "SHOPPING_CART": "Shopping Cart",
+    "EGP": "EGP",
+    "CLEAR_CART": "Clear Your Cart",
+    "CONTINUE_SHOPPING": "Continue Shopping",
+    "CHECKOUT": "Checkout",
+    "REMOVE": "Remove",
+    "YOUR_CART_EMPTY": "Your Cart is empty",
+    "TOTAL_COST": "Total Cost"
+  },
+
+  "ORDER": {
+    "YOUR_ORDERS": "Your Orders",
+    "THANK_YOU": "Thank you for your purchase!",
+    "ORDER_ID": "Order ID",
+    "EACH": "each",
+    "TOTAL_PRICE": "Total Price",
+    "BACK_HOME": "Back to home",
+    "PRINT_ORDER": "Print Order",
+    "QTY": "Qty",
+    "SHIPPING_ADDRESS": "Shipping Address",
+    "CHECKOUT": "Checkout ",
+    "DETAILS": "Details",
+    "CITY": "City",
+    "PHONE": "Phone",
+    "ONLINE_PAYMENT": "Online Payment",
+    "CASH_ON_DELIVERY": "Cash on Delivery"
+  },
+
+  "VALIDATION": {
+    "DETAILS_REQUIRED": "Details is required.",
+    "PHONE_REQUIRED": "Phone is required.",
+    "CITY_REQUIRED": "City is required.",
+    "PHONE_EG_ONLY": "Please write an Egyptian phone number only 01xxxxxxxxx ",
+    "PHONE_EG_REGEX": "^011\\d{8}$"
+  },
+  "CATEGORIES": {
+    "ALL_CATEGORIES": "All Categories"
+  },
+  "Brands": {
+    "ALL_BRANDS": "All Brands",
+    "CLOSE": "Close"
+  },
+
+  "FAVOURITES": {
+    "Favourites": "Favourites 💜",
+    "EMPTY": "There are no products in your favourites yet.",
+    "DISCOVER": "Discover products 💜"
+  },
+
+  "TOAST": {
+    "ADD_TO_CART_SUCCESS": "It has been successfully added🛺 ",
+    "ADD_TO_CART_ERROR": "Error adding to cart 😢",
+    "ADD_TO_WISHLIST_SUCCESS": "Product added to wishlist 💜",
+    "LOGIN_REQUIRED": "Please login to access your cart",
+    "CLEAR_SUCCESS": "Cart has been cleared successfully ✅",
+    "REMOVE_SUCCESS": "Item has been removed from your cart ❌",
+    "REMOVE_WISHLIST_SUCCESS": "Item has been removed from your wishlist ❌",
+    "UPDATE_SUCCESS": "Item quantity updated successfully 👍",
+    "RESET_SENT": "Reset code sent to your email 👍",
+    "RESET_FAILED": "Failed to send reset code. Please try again 😢",
+    "INVALID_CODE": "Invalid verification code ❌",
+    "PASSWORD_RESET_SUCCESS": "Password has been reset successfully ✨",
+    "PASSWORD_RESET_FAILED": "Failed to reset password. Please try again 😢",
+    "EMAIL_NOT_FOUND": "Email not found. Please try again 💔",
+    "LOGIN_SUCCESS": "Welcome back! You have logged in successfully 👋",
+    "LOGIN_FAILED": "Login failed. Please check your email or password ❌",
+    "REGISTER_SUCCESS": "Account created successfully 🎉",
+    "REGISTER_FAILED": "Registration failed. Please try again 😢"
+  },
+
+  "FOOTER": {
+    "Let_US_HELP_YOU": "Let Us Help You",
+    "HELP_LINKS": {
+      "HELP": "Help",
+      "SHIPPING": "Shipping & Delivery",
+      "RETURNS": "Returns & Replacements",
+      "RECALLS": "Recalls and Product Safety Alerts"
+    },
+    "SUPPORT": "Support",
+    "SUPPORT_INFO": {
+      "PHONE": "Phone",
+      "EMAIL": "Email",
+      "ADDRESS": "Address"
+    },
+    "ABOUT": "About Us",
+    "ABOUT_LINKS": {
+      "ABOUT_US": "About Us",
+      "POLICY": "Privacy Policy",
+      "EVENTS": "Events",
+      "SHOP": "Our Shop"
+    },
+    "FOLLOW": "Follow Us Now:",
+    "NEWSLETTER": {
+      "TITLE": "Are you new with us?",
+      "SUBTITLE": "Subscribe to our newsletter to get updates on our latest offers!",
+      "PLACEHOLDER": "Email..",
+      "BUTTON": "Subscribe"
+    },
+    "PAYMENT": "Payment Partners",
+    "APP": "Get App Now",
+    "LEGAL": {
+      "PRIVACY": "Privacy Policy",
+      "TERMS": "Terms of Use",
+      "COPYRIGHT": "Copyright © 2022, Outreach Monks. All rights Reserved"
+    }
+  },
+  "LOGIN": {
+    "TITLE": "Login Now",
+    "USERNAME_PLACEHOLDER": "Username",
+    "PASSWORD_PLACEHOLDER": "Password...",
+    "BUTTON": "Login",
+    "LOADING": "Loading...",
+    "FORGOT_PASSWORD": "Forget your Password ?",
+    "ERRORS": {
+      "EMAIL_REQUIRED": "Email is required",
+      "EMAIL_INVALID": "Please write a correct email",
+      "PASSWORD_REQUIRED": "Password is required",
+      "PASSWORD_PATTERN": {
+        "MUST_BE": "must be",
+        "START_WITH_CAPITAL": "Start with a capital letter",
+        "LENGTH": "Be between 6 and 15 characters in total."
+      },
+      "INCORRECT": "Incorrect email or password"
+    },
+    "NEW_HERE": "If you're new here, click to",
+    "SIGNUP": "Sign Up"
+  },
+
+  "FORGET_PASSWORD": {
+    "RESET_PASSWORD": "Reset Password",
+    "EMAIL_PLACEHOLDER": "Enter your email",
+    "EMAIL_REQUIRED": "Email is required",
+    "EMAIL_INVALID": "Please write a correct email",
+    "SEND_VERIFICATION": "Send Verification Code",
+    "ENTER_CODE": "Enter Verification Code",
+    "CODE_PLACEHOLDER": "Enter verification code",
+    "CODE_REQUIRED": "Verification code is required",
+    "VERIFY": "Verify",
+    "NEW_PASSWORD": "New Password",
+    "PASSWORD_PLACEHOLDER": "New Password",
+    "PASSWORD_REQUIRED": "Password is required",
+    "PASSWORD_PATTERN": "must be",
+    "PASSWORD_RULE_1": "Start with Capital letter",
+    "PASSWORD_RULE_2": "Be between 6 and 15 characters in total.",
+    "SAVE_NEW_PASSWORD": "Save New Password",
+    "BACK_TO_LOGIN": "Back to Login"
+  },
+
+  "REGISTER": {
+    "TITLE": "Create Account",
+    "NAME_PLACEHOLDER": "Enter your name",
+    "EMAIL_PLACEHOLDER": "Enter your email",
+    "PASSWORD_PLACEHOLDER": "Enter your password",
+    "REPASSWORD_PLACEHOLDER": "Confirm your password",
+    "PHONE_PLACEHOLDER": "Enter your phone number",
+    "BUTTON": "Register Now",
+    "ALREADY_HAVE": "Already have an account ? ",
+    "LOGIN": "Login here",
+
+    "ERRORS": {
+      "NAME_REQUIRED": "Name is required",
+      "EMAIL_REQUIRED": "Email is required",
+      "invalid": "Please write a correct email",
+      "PASSWORD_REQUIRED": "Password is required",
+      "REPASSWORD_REQUIRED": "re-Password is required",
+      "PHONE_REQUIRED": "Phone is required",
+      "REPASSWORD_MATCH": "re-Password didn't match password",
+      "PHONE_PATTERN": " please Write egyption Phone number only 011xxxxxxxx",
+      "EXISTS": "This account already exists",
+      "PASSWORD_PATTERN": "must be",
+      "NAME_minlength": "At least 3 characters",
+      "NAME_maxlength": "Maximum 15 characters",
+      "PASSWORD_RULE_1": "Start with Capital letter",
+      "PASSWORD_RULE_2": "Be between 6 and 15 characters in total."
+    }
+  }
+}

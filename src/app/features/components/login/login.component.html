@@ -1,0 +1,151 @@
+<section
+  class="min-h-screen flex items-center justify-center p-4 relative overflow-hidden"
+>
+  <div class="absolute -z-10 inset-0 overflow-hidden pointer-events-none">
+    <div
+      class="top-blue absolute w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] lg:w-[250px] lg:h-[250px] bg-blue-400 rounded-full top-[20%] right-[25%] sm:right-[32%]"
+    ></div>
+
+    <div
+      class="bottom-pink absolute w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] lg:w-[250px] lg:h-[250px] rounded-full bottom-[10%] left-[10%] sm:left-[34%]"
+    ></div>
+
+    <div
+      class="top-orange absolute w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] lg:w-[250px] lg:h-[250px] rounded-full top-[14%] left-[10%] sm:left-[34%]"
+    ></div>
+  </div>
+
+  <div
+    class="container w-[350px] sm:w-[350px] m-auto text-center p-8 text-white z-10"
+    style="backdrop-filter: blur(20px)"
+  >
+    <p class="mb-5 font-playfair">
+      <span class="text-xl text-purple-900 sm:text-2xl">{{"LOGIN.TITLE" | translate}}</span>
+    </p>
+
+    <hr />
+    <form [formGroup]="loginForm" (ngSubmit)="singIn(loginForm)">
+      <div>
+        <input
+          type="text"
+          id="username"
+          formControlName="email"
+          placeholder="{{ 'LOGIN.USERNAME_PLACEHOLDER' | translate }}..."
+          class="w-full mx-auto text-base font-poppins  sm:text-lg p-3 my-2 rounded-lg outline-none text-purple-500 border-b border-purple-300 focus:border-purple-500 bg-white bg-opacity-10 focus:ring-purple-400 transition-colors duration-200 focus:scale-105"
+        />
+
+        @if (loginForm.get('email')?.touched &&
+        loginForm.get('email')?.hasError('required') ) {
+        <div
+          class="p-4 mb-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+          role="alert"
+        >
+          {{ 'LOGIN.ERRORS.EMAIL_REQUIRED' | translate}}
+        </div>
+        } @if (loginForm.get('email')?.touched &&
+        loginForm.get('email')?.hasError('email') ) {
+        <div
+          class="p-4 mb-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+          role="alert"
+        >
+         {{'LOGIN.ERRORS.EMAIL_INVALID' | translate}}
+        </div>
+        }
+      </div>
+
+      <div>
+        <input
+          type="password"
+          formControlName="password"
+          id="password"
+          placeholder="{{ 'LOGIN.PASSWORD_PLACEHOLDER' | translate }}"
+          class="w-full mx-auto text-base font-poppins  sm:text-lg p-3 my-2 rounded-lg outline-none text-purple-500 border-b border-purple-300 focus:border-purple-500 bg-white bg-opacity-10 focus:ring-purple-400 transition-colors duration-200 focus:scale-105"
+        />
+
+        @if(loginForm.get('password')?.touched &&
+        loginForm.get('password')?.hasError('required')){
+
+        <div
+          class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+          role="alert"
+        >
+            {{ 'LOGIN.ERRORS.PASSWORD_REQUIRED' | translate}}
+        </div>
+        } @if(loginForm.get('password')?.touched &&
+        loginForm.get('password')?.hasError('pattern')){
+        <div
+          class="p-4 mb-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+          
+          role="alert"
+        >
+          <div>
+            <span class="font-medium">{{'LOGIN.ERRORS.PASSWORD_PATTERN.MUST_BE' | translate}}</span>
+            <ul class="mt-1.5 list-disc list-inside">
+              <li>{{'LOGIN.ERRORS.PASSWORD_PATTERN.START_WITH_CAPITAL' | translate}}</li>
+              <li>{{'LOGIN.ERRORS.PASSWORD_PATTERN.LENGTH' | translate}}</li>
+            </ul>
+          </div>
+        </div>
+        }
+      </div>
+
+      <div>
+        @if (isloding) {
+        <button
+          class="p-2 sm:text-lg bg-purple-900 rounded-2xl m-8 w-1/4 mx-auto sm:w-48 hover:bg-gradient-to-r hover:from-pink-300 hover:via-purple-500 hover:to-blue-400"
+        >
+          <i class="fa-solid fa-spinner fa-spin"></i>
+        </button>
+        }@else {
+        <button
+          class="p-2 sm:text-lg bg-purple-900 rounded-2xl m-8 w-36 mx-auto sm:w-48 hover:bg-gradient-to-r hover:from-pink-300 hover:via-purple-500 hover:to-blue-400"
+        >
+          {{'LOGIN.BUTTON' | translate}}
+        </button>
+        }
+        <div class="flex justify-center items-center -mt-5 mb-4">
+          <p
+            (click)="navigateToForgotPassword()"
+            class="text-black text-lg hover:text-purple-600 transition-colors duration-300 hover:cursor-pointer hover:underline"
+          >
+         {{'LOGIN.FORGOT_PASSWORD' | translate}}
+          </p>
+        </div>
+      </div>
+    </form>
+
+    @if (isError) {
+    <div
+      class="flex items-center p-4 mb-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+      role="alert"
+    >
+      <svg
+        class="shrink-0 inline w-4 h-4 me-3"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+      >
+        <path
+          d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+        />
+      </svg>
+      <!-- <span class="sr-only">Info</span> -->
+      <div>{{'LOGIN.ERRORS.INCORRECT' | translate}}</div>
+    </div>
+    }
+
+    <p class="text-purple-900 mt-4">
+    {{'LOGIN.NEW_HERE' | translate}}
+      <a
+        routerLink="../register"
+        class="underline text-purple-700 hover:text-purple-400 transition-colors duration-300 hover:cursor-pointer"
+        [ngClass]="  translationService.isRTL() ? 'font-cairo ' : 'font-pacifico'">
+        {{'LOGIN.SIGNUP'| translate}}
+    </a>
+      
+    </p>
+  </div>
+</section>
+
+

@@ -1,0 +1,8 @@
+<div class="container mt-24 mx-auto">
+  <app-product-list 
+    [products]="allProducts"
+    [searchValue]="Searchvalue"
+    (addToCart)="addToCard($event)"
+    (toggleWishlist)="toggle($event)"
+  ></app-product-list>
+</div>

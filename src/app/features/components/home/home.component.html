@@ -1,0 +1,11 @@
+<div class="container mx-auto">
+  <app-splide-grid [items]="categories"></app-splide-grid>
+  <app-slider-categories [category]="allCategory"></app-slider-categories>
+
+  <app-product-list
+    [products]="allProducts"
+    [searchValue]="Searchvalue"
+    (addToCart)="addToCard($event)"
+    (toggleWishlist)="toggle($event)"
+  ></app-product-list>
+</div>

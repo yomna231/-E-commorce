@@ -1,0 +1,19 @@
+<div class="container mx-auto  py-1 mt-24 px-6 md:px-8 lg:px-32">
+    <div class="heading mb-10 text-center ">
+        <h2 class="text-3xl font-playfair italic  text-purple-600">{{ "CATEGORIES.ALL_CATEGORIES" | translate}}</h2>
+    </div>
+    
+    <div class="card-body ">
+        <div class="grid grid-cols-1  sm:grid-cols-2 sm:gap-x-5 md:grid-cols-3 lg:grid-cols-4 gap-y-14 justify-items-center ">
+            @for (c of allCategory; track $index) {
+                <div class="card bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ">
+                    <div class="relative flex flex-col items-center group transition-all duration-300 hover:scale-105">
+                        <img src="{{c.image}}" alt="{{c.name}}" class="w-full h-48 object-cover rounded-lg mb-4" />
+                        <h3 class="text-lg font-semibold text-purple-300 text-center ">{{c.name}}</h3>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,57 @@
+<div class="relative w-48 transition-all mx-auto my-4">
+  <input
+    type="text"
+    [placeholder]="'COMMON.SEARCH' | translate"
+    [(ngModel)]="searchValue"
+    class="w-full py-2 pl-10 pr-4 text-gray-700 bg-white border rounded-full outline-none transition-all border-gray-300 focus:w-64 focus:border-blue-500 focus:text-blue-500"
+  />
+  <div class="absolute inset-y-0 left-0 flex items-center pl-3">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+    </svg>
+  </div>
+</div>
+
+<section class="w-fit mx-auto grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 justify-items-center gap-y-16 gap-x-4 mt-10 mb-5">
+  @for (p of products; track p.id) {
+    <div class="product w-72 bg-white rounded-xl duration-500 hover:scale-105 hover:shadow-lg  hover:shadow-purple-200 hover:border hover:border-none ">
+      <img 
+        [src]="p.imageCover" 
+        [routerLink]="['/single', p.id, p.title]" 
+        class="h-80 w-72 object-cover rounded-t-xl"
+        alt="Product"
+      />
+      <div class="px-4 py-3 w-72">
+        <h5 class="text-[#a28ac2] mr-3 uppercase text-xs">{{p.category.name}}</h5>
+        <h4 class="text-lg font-bold text-black truncate block capitalize">{{p.title}}</h4>
+        <div class="text-gray-600 flex items-center justify-between">
+          <span>{{p.price}} {{"COMMON.EGP" | translate}}</span>
+          <span>{{p.ratingsAverage}} <i class="fa-solid fa-star rating-color"></i></span>
+        </div>
+
+        <label class="container">
+          <svg 
+            (click)="toggleWishlist.emit(p)"
+            [ngClass]="{
+              'fill-red-500': p.isInWishlist,
+              'fill-slate-100 stroke-violet-300': !p.isInWishlist
+            }" 
+            class="w-7 h-7 transition-transform duration-200 hover:scale-110 ml-auto"
+            viewBox="0 0 24 24"
+          >
+            <path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path>
+          </svg>
+        </label>
+
+        <div class="text-center">
+          <button 
+            (click)="addToCart.emit(p.id)" 
+            class="btn bg-[#D7C3F1] p-3 mt-3 rounded-lg"
+          >
+           {{"COMMON.ADD_TO_CART" | translate}}
+          </button>
+        </div>
+      </div>
+    </div>
+  }
+</section>

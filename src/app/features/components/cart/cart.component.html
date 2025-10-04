@@ -1,0 +1,129 @@
+<div class="container mx-auto mt-24">
+  @if(products.length>0){
+  <div class="sm:flex shadow-md my-10">
+    <div class="w-full sm:w-full bg-white px-10 py-10">
+      <div class="flex justify-between border-b pb-8">
+        <h1 class="font-semibold text-2xl">
+          {{ "Cart.SHOPPING_CART" | translate }}
+        </h1>
+        <h2 class="font-semibold text-2xl">
+          {{ cartData?.numOfCartItems }} {{ "Cart.ITEMS" | translate }}
+        </h2>
+      </div>
+
+      @for (p of products; track $index) {
+
+      <div
+        class="md:flex items-strech py-8 md:py-10 lg:py-8 border-t border-gray-50"
+      >
+        <div
+          class="md:w-4/12 2xl:w-1/4 w-full justify-center flex items-center mb-5"
+        >
+          <img
+            [src]="p.product.imageCover"
+            alt="Black Leather Purse"
+            class="w-1/2 h-full object-center object-cover rounded-lg shadow-sm"
+          />
+        </div>
+
+        <div class="md:pl-3 md:w-8/12 2xl:w-3/4 flex flex-col justify-center">
+          <div class="flex items-center justify-between w-full">
+            <p class="text-base font-black leading-none text-gray-800">
+              {{ p.product.title }}
+            </p>
+            <div class="flex items-center">
+              <button
+                (click)="updateQnty(p.count - 1, p.product.id)"
+                class="border rounded-md py-2 px-4 mr-2 bg-white hover:bg-purple-50 hover:border-purple-200"
+              >
+                -
+              </button>
+              <span class="text-center w-8">{{ p.count }}</span>
+              <button
+                (click)="updateQnty(p.count + 1, p.product.id)"
+                class="border rounded-md py-2 px-4 ml-2 bg-white hover:bg-purple-50 hover:border-purple-200"
+              >
+                +
+              </button>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between pt-5">
+            <div
+              class="flex itemms-center cursor-pointer text-red-500 hover:text-red-700"
+            >
+              <i class="fas fa-trash-alt text-lg"></i>
+              <p
+                (click)="removeItem(p.product.id)"
+                class="text-base font-semibold mr-2 pl-2"
+              >
+                {{ "Cart.REMOVE" | translate }}
+              </p>
+            </div>
+            <p class="text-base font-black leading-none text-gray-800">
+              {{ p.price * p.count }} {{ "Cart.EGP" | translate }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      }
+      <div id="summary" class="w-full sm:w-full md:w-full 8 py-10">
+        <div class="flex justify-between items-center text-centerc mt-10 mb-5">
+          <span class="font-semibold text-sm uppercase">
+            {{ cartData?.numOfCartItems }} {{ "Cart.ITEMS" | translate }}</span
+          >
+        </div>
+
+        <div class="border-t mt-8">
+          <div
+            class="flex font-bold justify-between py-6 text-lg uppercase"
+          >
+            <span>{{ "Cart.TOTAL_COST" | translate }}</span>
+            <span
+              >{{ cartData?.data?.totalCartPrice }}
+              {{ "Cart.EGP" | translate }}</span
+            >
+          </div>
+          <div class="flex gap-5 items-center">
+            <button
+              (click)="removeUserOfCart()"
+              class="flex-2  font-semibold hover:bg-[#D7C3F1] p-3 text-sm border  border-spacing-6 border-purple-600 text-purple-500 bg-white uppercase "
+            >
+              {{ "Cart.CLEAR_CART" | translate }}
+            </button>
+
+            <button
+              [routerLink]="['/checkout', cartData?.cartId]"
+              class="flex-2 bg-purple-300 font-semibold hover:bg-purple-600 hover:text-white p-3 text-sm  text-purple-500 uppercase "
+            >
+              {{ "Cart.CHECKOUT" | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+      <a
+        routerLink="/home"
+        class="flex items-center font-semibold text-purple-500 hover:text-purple-700 text-lg mt-10"
+      >
+        <i
+          class="fa-solid"
+          [ngClass]="
+            _myTranslation.isRTL() ? 'fa-arrow-right ml-2' : 'fa-arrow-left mr-2'
+          "
+        >
+        </i>
+        <span>{{ "Cart.CONTINUE_SHOPPING" | translate }}</span>
+      </a>
+    </div>
+  </div>
+  }
+  
+  @if (cartData?.numOfCartItems === 0) {
+  <h1 class="w-full min-h-[60vh] flex justify-center items-center font-bold text-3xl ">
+    {{ "Cart.YOUR_CART_EMPTY" | translate }}
+  </h1>
+  }
+</div>

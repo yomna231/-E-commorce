@@ -1,0 +1,311 @@
+<footer class="bg-gray-100 pt-10">
+  <div
+    class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left"
+    [ngClass]="translationService.isRTL() ? 'text-center  md:text-right' : 'text-center md:text-left'"
+  >
+    <div>
+      <h3
+        [ngClass]="
+          translationService.isRTL()
+            ? 'font-cairo text-xl font-bold mb-4'
+            : 'font-montserrat font-bold text-lg mb-4'
+        "
+      >
+        {{ "FOOTER.Let_US_HELP_YOU" | translate }}
+      </h3>
+
+      <ul class="space-y-2 text-gray-600">
+        <li>
+          <a class="hover:underline font-poppins cursor-pointer">{{
+            "FOOTER.HELP_LINKS.HELP" | translate
+          }}</a>
+        </li>
+        <li>
+          <a class="hover:underline font-poppins cursor-pointer">{{
+            "FOOTER.HELP_LINKS.SHIPPING" | translate
+          }}</a>
+        </li>
+        <li>
+          <a class="hover:underline font-poppins cursor-pointer">{{
+            "FOOTER.HELP_LINKS.RETURNS" | translate
+          }}</a>
+        </li>
+        <li>
+          <a class="hover:underline font-poppins cursor-pointer">{{
+            "FOOTER.HELP_LINKS.RECALLS" | translate
+          }}</a>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h3
+        [ngClass]="
+          translationService.isRTL()
+            ? 'font-cairo text-xl font-bold mb-4'
+            : 'font-montserrat text-lg font-bold mb-4'
+        "
+      >
+        {{ "FOOTER.SUPPORT" | translate }}
+      </h3>
+      <div class="space-y-2 text-gray-500">
+        <p
+          [ngClass]="
+            translationService.isRTL()
+              ? 'font-cairo text-lg text-black font-medium'
+              : 'font-montserrat text-lg text-black font'
+          "
+        >
+          {{ "FOOTER.SUPPORT_INFO.PHONE" | translate }} :
+          <span class="text-gray-500 font-cairo"> +2(0) 1118762974 </span>
+        </p>
+
+        <p
+          [ngClass]="
+            translationService.isRTL()
+              ? 'font-cairo text-lg text-black font-medium'
+              : 'font-montserrat text-lg text-black font-medium'
+          "
+        >
+          {{ "FOOTER.SUPPORT_INFO.EMAIL" | translate }} :
+          <a
+            href="mailto:yomnaayman2111@gmail.com"
+            class="hover:underline text-gray-500 font-cairo"
+            >yomnaayman2111&#64;gmail.com</a
+          >
+        </p>
+        <p
+          [ngClass]="
+            translationService.isRTL()
+              ? 'font-cairo text-lg text-black font-medium'
+              : 'font-montserrat text-lg text-black font-medium'
+          "
+        >
+          {{ "FOOTER.SUPPORT_INFO.ADDRESS" | translate }} :
+          <span class="text-gray-500 font-cairo">
+            1234 Street Cairo, Egypt
+          </span>
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <h3
+        [ngClass]="
+          translationService.isRTL()
+            ? 'font-cairo text-xl font-bold mb-4'
+            : 'font-montserrat text-lg font-bold mb-4'
+        "
+      >
+        {{ "FOOTER.ABOUT" | translate }}
+      </h3>
+
+      <ul class="space-y-2 text-gray-600 cursor-pointer">
+        <li>
+          <a class="hover:underline font-poppins">{{
+            "FOOTER.ABOUT_LINKS.ABOUT_US" | translate
+          }}</a>
+        </li>
+        <li>
+          <a class="hover:underline font-poppins">{{
+            "FOOTER.ABOUT_LINKS.POLICY" | translate
+          }}</a>
+        </li>
+        <li>
+          <a class="hover:underline font-poppins">{{
+            "FOOTER.ABOUT_LINKS.EVENTS" | translate
+          }}</a>
+        </li>
+        <li>
+          <a class="hover:underline font-poppins">{{
+            "FOOTER.ABOUT_LINKS.SHOP" | translate
+          }}</a>
+        </li>
+      </ul>
+
+      <h3
+        [ngClass]="
+          translationService.isRTL()
+            ? 'font-cairo text-xl font-bold mt-6 mb-4'
+            : 'font-montserrat text-lg font-bold mt-6 mb-4'
+        "
+      >
+        {{ "FOOTER.FOLLOW" | translate }}
+      </h3>
+
+      <div
+        class="flex items-center justify-center md:justify-start space-x-4 rtl:space-x-reverse text-xl"
+      >
+        <a
+          href="https://www.facebook.com/yooa.ayman.56/"
+           target="_blank"
+           rel="noopener noreferrer"
+          aria-label="Facebook"
+          class="w-9 h-9 flex items-center justify-center rounded-full border border-black text-black hover:bg-purple-300 hover:text-white hover:border-purple-400 transition"
+        >
+          <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/yomna-ayman-910763277"
+           target="_blank"
+           rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          class="w-9 h-9 flex items-center justify-center rounded-full border border-black text-black hover:bg-purple-300 hover:text-white hover:border-purple-400 transition"
+        >
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+
+        <a
+          href="https://github.com/yomna231"
+           target="_blank"
+           rel="noopener noreferrer"
+          aria-label="GitHub"
+          class="w-9 h-9 flex items-center justify-center rounded-full border border-black text-black hover:bg-purple-300 hover:text-white hover:border-purple-400 transition"
+        >
+          <i class="fab fa-github"></i>
+        </a>
+
+        <a
+          href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox"
+           target="_blank"
+           rel="noopener noreferrer"
+          aria-label="Google"
+          class="w-9 h-9 flex items-center justify-center rounded-full border border-black text-black hover:bg-purple-300 hover:text-white hover:border-purple-400 transition"
+        >
+          <i class="fab fa-google"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="container mx-auto px-4 mt-8 pt-8 border-t border-gray-300 text-center md:text-left"
+    [ngClass]="translationService.isRTL() ? 'text-center md:text-right' : 'text-center md:text-left'"
+  >
+    <h3
+      [ngClass]="
+        translationService.isRTL()
+          ? 'font-cairo text-xl font-bold mb-2'
+          : 'font-montserrat text-lg font-bold mb-2'
+      "
+    >
+      {{ "FOOTER.NEWSLETTER.TITLE" | translate }}
+    </h3>
+
+    <p
+      [ngClass]="
+        translationService.isRTL()
+          ? 'font-cairo text-gray-600 mb-4 text-lg'
+          : 'font-poppins text-gray-600 mb-4 text-lg'
+      "
+    >
+      {{ "FOOTER.NEWSLETTER.SUBTITLE" | translate }}
+    </p>
+
+    <div
+      class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4 rtl:space-x-reverse"
+    >
+      <input
+        type="email"
+        placeholder="{{ 'FOOTER.NEWSLETTER.PLACEHOLDER' | translate }}"
+        class="flex-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+      />
+      <button
+        class="bg-white border border-purple-500  text-purple-500 py-3 px-6 rounded-2xl hover:bg-purple-500 font-bold hover:text-white transition duration-300 font-montserrat"
+        [ngClass]="
+          translationService.isRTL() ? 'font-cairo' : 'font-montserrat'
+        "
+      
+        >
+        {{ "FOOTER.NEWSLETTER.BUTTON" | translate }}
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="container mx-auto px-4 mt-8 pt-8 border-t border-gray-300 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
+  >
+    <div class="flex flex-wrap items-center gap-4">
+      <span
+        [ngClass]="
+          translationService.isRTL()
+            ? 'font-cairo text-2xl font-semibold'
+            : 'font-playfair text-2xl font-semibold'
+        "
+      >
+        {{ "FOOTER.PAYMENT" | translate }}</span
+      >
+      <div class="rounded-lg">
+        <img
+          src="image/Visa_Inc.-Logo.wine.png"
+          alt="Visa"
+          class="h-10 w-20 object-contain"
+        />
+      </div>
+      <img
+        src="image/MasterCard_Logo.svg.png"
+        alt="MasterCard"
+        class="h-10 w-20 object-contain text-white"
+      />
+      <img
+        src="image/payedit.png"
+        alt="PayPal"
+        class="h-10 w-20 object-contain"
+      />
+      <img
+        src="image/logo-amazon-pay-7017516947918903meswh2jwd.png"
+        alt="Amazon Pay"
+        class="h-20 w-20 object-contain"
+      />
+    </div>
+
+    <div class="flex flex-col items-center md:items-end space-y-2 md:space-y-0">
+      <span
+        [ngClass]="
+          translationService.isRTL()
+            ? 'font-cairo text-2xl font-medium'
+            : 'font-montserrat text-2xl font-medium'
+        "
+      >
+        {{ "FOOTER.APP" | translate }}</span
+      >
+
+      <img
+        src="image/app.png"
+        class="h-30 w-40 object-contain"
+        alt="App Download"
+      />
+    </div>
+  </div>
+
+  <div class="bg-gray-800 text-gray-300 py-4 mt-8">
+    <div
+      class="container mx-auto px-4 flex flex-col md:flex-row justify-center items-center text-lg "
+    >
+      <div
+        class="flex justify-center items-center space-x-4 rtl:space-x-reverse mb-2 md:mb-0 md:mr-40 mx-8"
+      >
+        <a
+          class="text-gray-300 hover:text-gray-300 "
+          [ngClass]="
+            translationService.isRTL() ? 'font-cairo' : 'font-playfair'">
+          {{ "FOOTER.LEGAL.PRIVACY" | translate }}</a>
+
+        <a
+          class="text-gray-300 hover:text-gray-300 font-playfair"
+          [ngClass]="
+            translationService.isRTL() ? 'font-cairo' : 'font-playfair'">
+          {{ "FOOTER.LEGAL.TERMS" | translate }}
+        </a>
+
+      </div>
+
+      <p
+        [ngClass]="translationService.isRTL() ? 'font-cairo' : 'font-playfair'"
+      >
+        {{ "FOOTER.LEGAL.COPYRIGHT" | translate }}
+      </p>
+    </div>
+  </div>
+</footer>

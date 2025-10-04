@@ -1,0 +1,19 @@
+<section #mainCarousel id="main-carousel" class="splide" aria-label="My Awesome Gallery">
+  <div class="splide__track">
+    <ul class="splide__list">
+      @for (cat of items; track cat.id) {
+        <li class="splide__slide">
+          <img [src]="cat.image" [alt]="cat.name" />
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<ul id="thumbnails" class="thumbnails">
+  @for (cat of items; track cat.id; let i = $index) {
+    <li class="thumbnail">
+      <img [src]="cat.image" [alt]="cat.name" />
+    </li>
+  }
+</ul>

@@ -1,0 +1,73 @@
+<h2 class="text-2xl font-bold mb-4 mt-24 text-center font-playfair italic">
+  {{ "FAVOURITES.Favourites" | translate }}
+</h2>
+
+
+  
+  @if (wishlist.length > 0) {
+<div class="container mx-auto px-4 py-8">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    @for (product of wishlist; track product._id) {
+    <div
+      class="group relative mb-4 p-4 border rounded-xl shadow-md transition-all duration-300 hover:shadow-lg"
+    >
+      <div
+        class="absolute"
+        [ngClass]="_myTranslation.isRTL() ? 'top-4 left-4' : 'top-4 right-4'"
+      >
+        <button
+          class="button"
+          (click)="remove(product._id)"
+          [attr.data-label]="'COMMON.REMOVE' | translate"
+        >
+          <svg viewBox="0 0 448 512" class="svgIcon">
+            <path
+              d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
+            ></path>
+          </svg>
+        </button>
+      </div>
+
+      <!--  -->
+
+      <div class="flex justify-center mt-8 md:mt-14">
+        <img
+          [src]="product.imageCover"
+          [alt]="product.title"
+          class="w-1/2 h-1/2 object-cover mb-4 rounded-lg hover:scale-105 transition-transform duration-300"
+        />
+      </div>
+
+      <div class="text-center mt-2">
+        <h3 class="font-semibold text-lg">{{ product.title }}</h3>
+        <p class="text-purple-600 font-medium">
+          {{ product.price }} {{ "COMMON.EGP" | translate }}
+        </p>
+      </div>
+
+      <div class="mt-4 text-center">
+        <button
+          (click)="addtoCart(product._id)"
+          class="bg-[#D7C3F1] text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition-colors w-1/2"
+        >
+          {{ "COMMON.ADD_TO_CART" | translate }}
+        </button>
+      </div>
+    </div>
+    }
+  </div>
+</div>
+
+} 
+
+@if(wislistLength?.count === 0) {
+<div class="flex flex-col justify-center items-center my-52 font-poppins">
+  <p class="text-lg text-gray-500">{{ "FAVOURITES.EMPTY" | translate }}😢</p>
+  <a
+    routerLink="../products"
+    class="mt-4 inline-block bg-purple-400 font-playfair text-white px-5 py-2 rounded-full hover:bg-purple-500 hover:shadow-lg transition-all duration-300 hover:text-white"
+  >
+    {{ "FAVOURITES.DISCOVER" | translate }}
+  </a>
+</div>
+} 

@@ -1,0 +1,58 @@
+.thumbnail {
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+  list-style: none;
+  margin: 0 0.2rem;
+  cursor: pointer;
+  border-radius: 8px; 
+  border: 2px solid transparent;
+  transition: 0.3s;
+}
+.thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem; 
+  margin-top: 1rem;
+  
+}
+.thumbnails img:hover {
+ transform: scale(1.15) rotate(3deg);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+
+.thumbnail img {
+  width: 100%;
+  height: 100%; 
+  object-fit: cover;
+}
+
+.thumbnail.is-active {
+  border-color: #9333ea; 
+}
+
+.splide {
+  margin-top: 9rem; 
+  border-radius: 12px; 
+  overflow: hidden;
+}
+
+
+.splide__slide img {
+  width: 100%;
+  height: 400px; 
+  object-fit: cover; 
+  border-radius: 16px;
+}
+
+
+.splide__arrow--prev svg,
+.splide__arrow--next svg {
+  fill: #fff !important;
+  width: 22px !important;
+  height: 22px !important;
+}
+

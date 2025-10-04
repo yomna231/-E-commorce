@@ -1,0 +1,35 @@
+<div class="container  mx-auto  py-1 mt-24 lg:px-20">
+    <div class="heading mb-10 text-center ">
+        <h2 class="text-3xl font-playfair italic  text-purple-600">{{"Brands.ALL_BRANDS" |translate}}</h2>
+    </div>
+    
+    <div class="card-body">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 justify-items-center ">
+            @for (c of allBrands; track $index) {
+                <div class="card rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer " (click)="openModel(c._id)">
+                    <div class="relative  flex flex-col items-center p-4 group transition-all duration-300 hover:scale-105">
+                        <img [src]="c.image" [alt]="c.name" class="w-full h-32 object-contain rounded-lg mb-4" />
+                        <h3 class="text-lg font-semibold text-purple-300  text-center ">{{c.name}}</h3>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@if (selectBrand) {
+  <div class="fixed inset-0 bg-black shadow-lg bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white p-6  shadow-md shadow-purple-400 rounded-lg max-w-md w-full relative">
+      <button (click)="closeModel()" class="absolute top-2 right-2 text-gray-600 text-2xl hover:text-red-600">×</button>
+      <h2 class="text-3xl text-purple-600 font-bold mb-2">{{ selectBrand.name }}</h2>
+      <p class="text-gray-700 mb-4">{{ selectBrand.slug }}</p>
+      <img [src]="selectBrand.image" alt="{{ selectBrand.name }}" class="w-full h-48 object-contain mb-4" />
+      <div class="flex justify-end">
+      <button (click)="closeModel()" class="  bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700  ">
+      {{"Brands.CLOSE" | translate}}
+      </button>
+</div>
+    </div>
+  </div>
+}

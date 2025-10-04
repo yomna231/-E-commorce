@@ -1,0 +1,182 @@
+<section
+  class="min-h-screen flex items-center justify-center p-4 mt-10 relative overflow-hidden"
+>
+  <div class="absolute -z-10 inset-0 overflow-hidden pointer-events-none">
+    <div
+      class="top-blue absolute w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] lg:w-[250px] lg:h-[250px] bg-blue-400 rounded-full top-[20%] right-[25%] sm:right-[32%]"
+    ></div>
+    <div
+      class="bottom-pink absolute w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] lg:w-[250px] lg:h-[250px] rounded-full bottom-[10%] left-[10%] sm:left-[34%]"
+    ></div>
+    <div
+      class="top-orange absolute w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] lg:w-[250px] lg:h-[250px] rounded-full top-[14%] left-[10%] sm:left-[34%]"
+    ></div>
+  </div>
+
+  <div
+    class="container w-[350px] sm:w-[350px] m-auto text-center p-8 text-white z-10"
+    style="backdrop-filter: blur(20px)"
+  >
+    <p class="mb-5 font-playfair">
+      <span class="text-xl text-purple-900 sm:text-2xl">{{
+        "REGISTER.TITLE" | translate
+      }}</span>
+    </p>
+    <hr />
+
+    <form [formGroup]="registerForm" (ngSubmit)="singUp(registerForm)">
+      <div>
+        <input
+          type="text"
+          formControlName="name"
+          placeholder="{{ 'REGISTER.NAME_PLACEHOLDER' | translate }}"
+          class="w-full text-base sm:text-lg p-3 my-2 rounded-lg outline-none text-purple-700 border-b border-purple-300 bg-white bg-opacity-10 focus:ring-purple-400 transition-colors duration-200"
+        />
+        @if (registerForm.get('name')?.touched &&
+        registerForm.get('name')?.hasError('required')) {
+        <div class="p-2 text-sm text-red-800 bg-red-50 rounded-lg">
+          {{ "REGISTER.ERRORS.NAME_REQUIRED" | translate }}
+        </div>
+        } @if (registerForm.get('name')?.touched &&
+        registerForm.get('name')?.hasError('minlength') ) {
+        <div class="p-4 mb-4 mt-2 text-sm text-red-800 rounded-lg" role="alert">
+          {{ "REGISTER.ERRORS.NAME_minlength" | translate }}
+        </div>
+        } @if (registerForm.get('name')?.touched &&
+        registerForm.get('name')?.hasError('maxlength') ) {
+        <div class="p-4 mb-4 mt-2 text-sm text-red-800 rounded-lg" role="alert">
+          {{ "REGISTER.ERRORS.NAME_maxlength" | translate }}
+        </div>
+        }
+      </div>
+
+      <div>
+        <input
+          type="email"
+          formControlName="email"
+          placeholder="{{ 'REGISTER.EMAIL_PLACEHOLDER' | translate }}"
+          class="w-full text-base sm:text-lg p-3 my-2 rounded-lg outline-none text-purple-700 border-b border-purple-300 bg-white bg-opacity-10 focus:ring-purple-400 transition-colors duration-200"
+        />
+        @if (registerForm.get('email')?.touched &&
+        registerForm.get('email')?.hasError('required')) {
+        <div class="p-2 text-sm text-red-800 bg-red-50 rounded-lg">
+          {{ "REGISTER.ERRORS.EMAIL_REQUIRED" | translate }}
+        </div>
+        } @if (registerForm.get('email')?.touched &&
+        registerForm.get('email')?.hasError('email') ) {
+        <div class="p-4 mb-4 mt-2 text-sm text-red-800 rounded-lg" role="alert">
+          {{ "REGISTER.ERRORS.invalid" | translate }}
+        </div>
+        }
+      </div>
+
+      <!-- Password -->
+      <div>
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="{{ 'REGISTER.PASSWORD_PLACEHOLDER' | translate }}"
+          class="w-full text-base sm:text-lg p-3 my-2 rounded-lg outline-none text-purple-700 border-b border-purple-300 bg-white bg-opacity-10 focus:ring-purple-400 transition-colors duration-200"
+        />
+        @if (registerForm.get('password')?.touched &&
+        registerForm.get('password')?.hasError('required')) {
+        <div class="p-2 text-sm text-red-800 bg-red-50 rounded-lg">
+          {{ "REGISTER.ERRORS.PASSWORD_REQUIRED" | translate }}
+        </div>
+        } @if (registerForm.get('password')?.touched &&
+        registerForm.get('password')?.hasError('pattern') ) {
+        <div class="p-4 mb-4 mt-2 text-sm text-red-800 rounded-lg" role="alert">
+          <div>
+            <span class="font-medium">{{
+              "REGISTER.ERRORS.PASSWORD_PATTERN" | translate
+            }}</span>
+            <ul class="mt-1.5 list-disc list-inside">
+              <li>{{ "REGISTER.ERRORS.PASSWORD_RULE_1" | translate }}</li>
+              <li>{{ "REGISTER.ERRORS.PASSWORD_RULE_2" | translate }}</li>
+            </ul>
+          </div>
+        </div>
+        }
+      </div>
+
+      <!-- rePassword -->
+      <div>
+        <input
+          type="password"
+          formControlName="rePassword"
+          placeholder="{{ 'REGISTER.REPASSWORD_PLACEHOLDER' | translate }}"
+          class="w-full text-base sm:text-lg p-3 my-2 rounded-lg outline-none text-purple-700 border-b border-purple-300 bg-white bg-opacity-10 focus:ring-purple-400 transition-colors duration-200"
+        />
+        @if (registerForm.get('rePassword')?.touched &&
+        registerForm.get('rePassword')?.hasError('required') ) {
+        <div class="p-4 mb-4 mt-2 text-sm text-red-800 rounded-lg" role="alert">
+          {{ "REGISTER.ERRORS.REPASSWORD_REQUIRED" | translate }}
+        </div>
+        } @if (registerForm.get('rePassword')?.touched &&
+        !registerForm.get('rePassword')?.hasError('required') &&
+        registerForm.hasError('didntMatch')) {
+        <div class="p-2 text-sm text-red-800 bg-red-50 rounded-lg">
+          {{ "REGISTER.ERRORS.REPASSWORD_MATCH" | translate }}
+        </div>
+        }
+      </div>
+
+      <!-- Phone -->
+      <div>
+        <input
+          type="text"
+          formControlName="phone"
+          placeholder="{{ 'REGISTER.PHONE_PLACEHOLDER' | translate }}"
+          class="w-full text-base sm:text-lg p-3 my-2 rounded-lg outline-none text-purple-700 border-b border-purple-300 bg-white bg-opacity-10 focus:ring-purple-400 transition-colors duration-200"
+        />
+        @if (registerForm.get('phone')?.touched &&
+        registerForm.get('phone')?.hasError('required') ) {
+        <div class="p-4 mb-4 mt-2 text-sm text-red-800 rounded-lg" role="alert">
+          {{ "REGISTER.ERRORS.PHONE_REQUIRED" | translate }}
+        </div>
+        } @if (registerForm.get('phone')?.touched &&
+        registerForm.get('phone')?.hasError('pattern')) {
+        <div class="p-2 text-sm text-red-800 bg-red-50 rounded-lg">
+          {{ "REGISTER.ERRORS.PHONE_PATTERN" | translate }}
+        </div>
+        }
+      </div>
+
+      <!-- Submit button -->
+      <div class="mt-5">
+        @if (isLoading) {
+        <button class="w-full bg-purple-600 text-white py-2 px-4 rounded-lg">
+          <i class="fa-solid fa-spinner fa-spin"></i>
+        </button>
+        } @else {
+        <button
+          class="w-full bg-purple-700 text-white py-2 px-4 rounded-lg transition-all duration-500 ease-in-out hover:bg-gradient-to-r hover:from-pink-300 hover:via-purple-500 hover:to-blue-400"
+        >
+          {{ "REGISTER.BUTTON" | translate }}
+        </button>
+        }
+      </div>
+    </form>
+
+    <!-- error alert -->
+    @if (isErrorMsg) {
+    <div
+      class="flex items-center p-4 mt-4 text-sm text-red-800 rounded-lg bg-red-50"
+    >
+      {{ "REGISTER.ERRORS.EXISTS" | translate }}
+    </div>
+    }
+
+    <!-- footer -->
+    <p class="text-purple-900 mt-4">
+      {{ "REGISTER.ALREADY_HAVE" | translate }}
+      <a
+        routerLink="../login"
+        class="underline text-purple-700 hover:text-purple-400 transition-colors duration-300 hover:cursor-pointer"
+        [ngClass]="translationService.isRTL() ? 'font-cairo ' : 'font-pacifico'"
+      >
+        {{ "REGISTER.LOGIN" | translate }}
+      </a>
+    </p>
+  </div>
+</section>

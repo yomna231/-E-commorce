@@ -1,0 +1,304 @@
+<nav
+  class="fixed top-0 left-0 z-20 w-full bg-white border-gray-200 px-6 sm:px-4"
+>
+  <div
+    class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4 px-0"
+  >
+    <!-- logo -->
+    <a
+      class="flex items-center space-x-3 rtl:space-x-reverse"
+      routerLink="/home"
+    >
+      <!-- <img src="image/freshcart-logo.svg" class="h-8" alt="freshcart-logo" /> -->
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="size-6 text-purple-500 w-10 h-10"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+        />
+      </svg>
+
+      <span
+        class="self-center text-3xl font-pacifico  whitespace-nowrap text-purple-500"
+        >Fresh Cart</span
+      >
+    </a>
+
+    <!--  desktop -->
+
+    @if (login) {
+    <div
+      class="hidden md:flex md:items-center md:space-x-8 rtl:space-x-reverse font-medium font-montserrat"
+    >
+      <a
+        routerLink="home"
+        routerLinkActive="text-purple-500"
+        class="block px-2 py-2 text-lg hover:text-purple-600 hover:bg-purple-100 hover:rounded-tr-2xl hover:rounded-bl-2xl text-gray-700 dark:hover:bg-gray-600 transition-colors"
+        >{{ "COMMON.HOME" | translate }}</a
+      >
+      <a
+        routerLink="cart"
+        routerLinkActive="text-purple-500"
+        class="block px-2 py-2 text-lg hover:text-purple-600 hover:bg-purple-100 hover:rounded-tr-2xl hover:rounded-bl-2xl text-gray-700 dark:hover:bg-gray-600 transition-colors duration-300 ease-in-out"
+        >{{ "COMMON.CART" | translate }}</a
+      >
+      <a
+        routerLink="categories"
+        routerLinkActive="text-purple-500"
+        class="block px-2 py-2 text-lg hover:text-purple-600 hover:bg-purple-100 hover:rounded-tr-2xl hover:rounded-bl-2xl text-gray-700 dark:hover:bg-gray-600 transition-colors duration-300 ease-in-out"
+        >{{ "COMMON.CATEGORIES" | translate }}</a
+      >
+      <a
+        routerLink="brands"
+        routerLinkActive="text-purple-500"
+        class="block px-2 py-2 text-lg hover:text-purple-600 hover:bg-purple-100 hover:rounded-tr-2xl hover:rounded-bl-2xl text-gray-700 dark:hover:bg-gray-600 transition-colors duration-300 ease-in-out"
+        >{{ "COMMON.BRANDS" | translate }}</a
+      >
+      <a
+        routerLink="wishlist"
+        routerLinkActive="text-purple-500"
+        class="block px-2 py-2 text-lg hover:text-purple-600 hover:bg-purple-100 hover:rounded-tr-2xl hover:rounded-bl-2xl text-gray-700 dark:hover:bg-gray-600 transition-colors duration-300 ease-in-out"
+        >{{ "COMMON.WISHLIST" | translate }}</a
+      >
+      <a
+        routerLink="products"
+        routerLinkActive="text-purple-500"
+        class="block px-2 py-2 text-lg hover:text-purple-600 hover:bg-purple-100 hover:rounded-tr-2xl hover:rounded-bl-2xl text-gray-700 dark:hover:bg-gray-600 transition-colors duration-300 ease-in-out"
+        >{{ "COMMON.PRODUCTS" | translate }}</a
+      >
+    </div>
+    } @if (!login) {
+    <div
+      class="hidden  mx-auto md:flex  md:space-x-8 rtl:space-x-reverse font-medium"
+    >
+      <a
+        routerLink="login"
+        class="block px-2 py-2 text-lg hover:text-purple-600 hover:bg-purple-100 hover:rounded-tr-2xl hover:rounded-bl-2xl text-gray-700 dark:hover:bg-gray-600 transition-colors duration-300 ease-in-out"
+        >{{ "COMMON.LOGIN" | translate }}</a
+      >
+      <a
+        routerLink="register"
+        class="block px-2 py-2 text-lg hover:text-purple-600 hover:bg-purple-100 hover:rounded-tr-2xl hover:rounded-bl-2xl text-gray-700 dark:hover:bg-gray-600 transition-colors duration-300 ease-in-out"
+        >{{ "COMMON.REGISTER" | translate }}</a
+      >
+    </div>
+    }
+
+    <!-- ar & an -->
+
+    <!-- cart and user menu -->
+    <div
+      class="hidden md:flex items-center md:order-2 space-x-2 md:space-x-0 rtl:space-x-reversec"
+    >
+      <!-- <div class="flex items-center  hover:text-purple-500 transition  ml-0 mr-0 px-0"> -->
+
+      <button
+        (click)="switchLanguage(currentLanguage() === 'en' ? 'ar' : 'en')"
+        class="flex items-center  hover:text-purple-500 transition mr-3 "
+      >
+        <i class="fa-solid fa-earth-americas text-lg mx-1 "></i>
+        <span class="uppercase text-base">{{
+          currentLanguage() === "en" ? "EN" : "العربيه"
+        }}</span>
+      </button>
+      
+
+
+      <div class="mr-8">
+        <app-cart-count></app-cart-count>
+      </div>
+
+      <button
+        type="button"
+        class="flex text-sm rounded-full"
+        id="user-menu-button"
+        aria-expanded="false"
+        data-dropdown-toggle="user-dropdown"
+        data-dropdown-placement="bottom"
+      >
+        <span class="sr-only">Open user menu</span>
+        <!-- <img class="w-8 h-8 rounded-full" src="../../../../../" alt="user photo"> -->
+        <i class="fa-solid fa-user fa-xl"></i>
+      </button>
+    </div>
+
+    
+
+    <!-- Dropdown menu -->
+    <div class="flex items-center px-6">
+ <div class="flex items-start md:hidden">
+      <button
+        (click)="switchLanguage(currentLanguage() === 'en' ? 'ar' : 'en')"
+        class="flex items-center hover:text-purple-500 mx-3 transition"
+      >
+        <i class="fa-solid fa-earth-americas mx-1 text-lg"></i>
+        <span class="uppercase text-base">
+          {{ currentLanguage() === "en" ? "EN" : "العربيه" }}
+        </span>
+      </button>
+    </div>
+
+      <div
+        class="z-50 hidden my-6 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow-sm dark:bg-gray-700 dark:divide-gray-600"
+        id="user-dropdown"
+      >
+        <div class="px-1 py-3">
+          @if (login) {
+          <span class="block text-sm text-gray-900 dark:text-white"
+            >{{ UsreNameLogged }}💜✨</span
+          >
+          }
+        </div>
+        @if(login){
+        <ul class="py-2" aria-labelledby="user-menu-button">
+          <li (click)="SingOut()">
+            <a
+              class="block px-4 py-2 text-sm text-gray-700 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+              routerLink="login"
+              routerLinkActive="bg-gray-100"
+              >{{"COMMON.LOGOUT" | translate}}</a
+            >
+          </li>
+        </ul>
+        }
+      </div>
+
+      <button
+        data-collapse-toggle="mobile-menu"
+        type="button"
+        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Open main menu</span>
+        <svg
+          class="w-5 h-5"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 17 14"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M1 1h15M1 7h15M1 13h15"
+          />
+        </svg>
+      </button>
+
+     
+    </div>
+
+    <div class="hidden w-full md:hidden font-normal font-montserrat" id="mobile-menu">
+      @if (login) {
+      <ul
+        class="flex flex-col items-center text-center font-semibold p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 space-y-3"
+      >
+        <li>
+          <a
+            class="block px-4 py-2 text-lg hover:text-purple-600 hover:bg-purple-100 text-gray-700 dark:hover:bg-gray-600"
+            routerLink="home"
+            routerLinkActive="bg-gray-100"
+            >{{ "COMMON.HOME" | translate }}</a
+          >
+        </li>
+
+        <li>
+          <a
+            class="block px-4 py-2 text-lg hover:text-purple-600 hover:bg-purple-100 text-gray-700 dark:hover:bg-gray-600"
+            routerLink="cart"
+            routerLinkActive="bg-gray-100"
+            >{{ "COMMON.CART" | translate }}</a
+          >
+        </li>
+
+        <li>
+          <a
+            class="block px-4 py-2 text-lg hover:text-purple-600 hover:bg-purple-100 text-gray-700 dark:hover:bg-gray-600"
+            routerLink="categories"
+            routerLinkActive="bg-gray-100"
+            >{{ "COMMON.CATEGORIES" | translate }}</a
+          >
+        </li>
+
+        <li>
+          <a
+            class="block px-4 py-2 text-lg hover:text-purple-600 hover:bg-purple-100 text-gray-700 dark:hover:bg-gray-600"
+            routerLink="brands"
+            routerLinkActive="bg-gray-100"
+            >{{ "COMMON.BRANDS" | translate }}</a
+          >
+        </li>
+
+        <li>
+          <a
+            class="block px-4 py-2 text-lg hover:text-purple-600 hover:bg-purple-100 text-gray-700 dark:hover:bg-gray-600"
+            routerLink="wishlist"
+            routerLinkActive="bg-gray-100"
+            >{{ "COMMON.WISHLIST" | translate }}</a
+          >
+        </li>
+
+        <li>
+          <a
+            class="block px-4 py-2 text-lg hover:text-purple-600 hover:bg-purple-100 text-gray-700 dark:hover:bg-gray-600"
+            routerLink="products"
+            routerLinkActive="bg-gray-100"
+            >{{ "COMMON.PRODUCTS" | translate }}</a
+          >
+        </li>
+
+        <hr class="my-3 border-gray-300" />
+
+        <li>
+          <div class="mr-8">
+            <app-cart-count></app-cart-count>
+          </div>
+        </li>
+
+        <li (click)="SingOut()">
+          <a
+            routerLink="login"
+            class="flex items-center px-4 py-2 text-lg hover:text-purple-600 hover:bg-purple-100 text-gray-700"
+          >
+            <i class="fa-solid fa-right-from-bracket mr-2"></i>
+            <span>{{ "COMMON.LOGOUT" | translate }}</span>
+          </a>
+        </li>
+      </ul>
+
+      } @if(!login){
+      <ul
+        class="flex flex-col md:ms-36 font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+      >
+        <li>
+          <a
+            class="block px-4 py-2 text-gray-700 dark:hover:bg-gray-600"
+            routerLink="login"
+            routerLinkActive="bg-gray-100"
+            >{{ "COMMON.LOGIN" | translate }}</a
+          >
+        </li>
+
+        <li>
+          <a
+            class="block px-4 py-2 text-sm text-gray-700 dark:hover:bg-gray-600"
+            routerLink="register"
+            routerLinkActive="bg-gray-100"
+            >{{ "COMMON.REGISTER" | translate }}</a
+          >
+        </li>
+      </ul>
+      }
+    </div>
+  </div>
+</nav>
